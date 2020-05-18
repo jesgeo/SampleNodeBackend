@@ -8,8 +8,8 @@ function App(req,res) {
     return app(req,res);
 }
 
-var myWebsiteBackend = App;
+var sampleNodeBackend = App;
 
 module.exports = {
-    myWebsiteBackend
+    sampleNodeBackend
 };
