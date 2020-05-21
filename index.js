@@ -1,6 +1,6 @@
 var app = require('./app');
 
-function App(req,res) {
+function sampleNodeBackend(req,res) {
     if (!req.url) {
         req.url = '/';
         req.path = '/';
@@ -8,8 +8,13 @@ function App(req,res) {
     return app(req,res);
 }
 
-var SampleNodeBackend = App;
+function samplePubSub(event, context) => {
+  const pubsubMessage = event.data;
+  console.log(Buffer.from(pubsubMessage, 'base64').toString());
+};
+
 
 module.exports = {
-    SampleNodeBackend
+    sampleNodeBackend,
+    samplePubSub
 };
