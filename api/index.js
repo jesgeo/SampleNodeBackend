@@ -1,4 +1,30 @@
 const router = require('express').Router()
+const request = require('request')
+
+
+const ZOOPLA_API_KEY = "eb2ynecgt2ty2eremkb5vsxq";
+
+
+
+router.get('/zoopla', (req, res) => {
+    // http://api.zoopla.co.uk/api/v1/property_listings.xml?area=Oxford&api_key=eb2ynecgt2ty2eremkb5vsxq
+
+    var url = "http://api.zoopla.co.uk/api/v1/property_listings.xml?";
+
+    url += "api_key=" + ZOOPLA_API_KEY;
+    url += "area=Oxford";
+
+    request.get(url, (error, response, body) => {
+        if(error) {
+            console.dir(error);
+        }
+        console.dir(body);
+    });
+
+    res.status(200);
+
+});
+
 
 router.get('/portfolio', (req, res) => {
     return res.status(200).send([
