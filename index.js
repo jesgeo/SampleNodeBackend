@@ -9,7 +9,7 @@ function sampleNodeBackend(req,res) {
     return app(req,res);
 }
 
-samplePubSub = (event, context) => {
+function samplePubSub(event, context) {
   const pubsubMessage = event.data;
 
   const runMiddleware = require('run-middleware');
@@ -40,12 +40,6 @@ samplePubSub = (event, context) => {
   } catch(e) {
     new Error("Error whilst running middleware  " + e);
   }
-
-
-
-  // console.log(Buffer.from(pubsubMessage, 'base64').toString());
-  console.log(JSON.stringify(event));
-  console.log(JSON.stringify(context));
 
 };
 
